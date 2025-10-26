@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Deklook Dress Listing</title>
+  <style>
+    body {
+      font-family: initial;
+      margin: 20px;
+      background-color: skyblue;
+      font-weight: bold;
+    }
+
+    header {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      font-size: 32px;
+      font-weight: bold;
+      padding: 5px 0px;
+      background: linear-gradient(90deg, #ff4da6, #ff80bf, #ffb3d9);
+      color: white;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      letter-spacing: 1px;
+      font-family: initial;
+      position: relative;
+      border-radius: 20px;
+      margin: 0%;
+    }
+
+    header .logo {
+      position: absolute;
+      left: 20px;
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    header span {
+      color: #ffd700;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 25px;
+      overflow: hidden;
+      padding: 2px 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      width: 300px;
+      transition: 0.3s ease;
+      justify-content: center;
+    }
+
+    .search-bar:hover {
+      transform: scale(1.03);
+    }
+
+    .search-bar input[type="text"] {
+      border: none;
+      outline: none;
+      padding: 8px 10px;
+      width: 100%;
+      border-radius: 25px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .search-bar button {
+      border: none;
+      background: linear-gradient(90deg, deeppink, hotpink);
+      color: white;
+      border-radius: 20px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .search-bar button:hover {
+      background: linear-gradient(90deg, #ff1a8c, #ff66b2);
+      transform: scale(1.05);
+    }
+
+    .container {
+      display: flex;
+      gap: 30px;
+      background-color: white;
+      border-radius: 10px;
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .image-preview {
+      flex: 1;
+    }
+
+    .image-preview img {
+     
+      width: 450px;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.4s ease;
+      padding-inline: 10px;
+     
+
+    }
+
+    .product-details {
+      flex: 2;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .brand {
+      color: #555;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .price {
+      margin: 15px 0;
+      font-size: 20px;
+      color: green;
+    }
+
+    .ratings {
+      margin: 10px 0;
+      color: #555;
+    }
+
+    .ratings span {
+      background-color: green;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 5px;
+      margin-right: 8px;
+    }
+
+    .size-select span {
+      display: inline-block;
+     border-radius: 7px;
+      cursor: pointer;
+    }
+
+   
+
+    a {
+      color: black;
+      font-size: 19px;
+      font-family: initial;
+      text-decoration: none;
+    }
+
+   
+   
+    .booking-info {
+      margin-top: 20px;
+      border-radius: 10px;
+      padding: 25px 25px;
+     
+    }
+
+    .booking-info h2 {
+      color: #ff1493;
+      font-size: 20px;
+      text-align: left;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 2px #00000033;
+    }
+
+    .booking-info p {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      margin: 5px 0;
+    }
+
+    .booking-info strong {
+      color: #ff1493;
+      bottom:0;    }
+
+    button {
+      background: linear-gradient(90deg, hotpink, deeppink);
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #ff66b2, #ff1493);
+      transform: scale(1.05);
+    }
+    h2{
+      font-family: initial;
+      font-size: 20px;
+
+    }
+    h3{
+      font-family: initial;
+
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">twinkie<span>_</span>star ✨</div>
+    <form class="search-bar" onsubmit="event.preventDefault()">
+      <input type="text" placeholder="Search sarees...">
+      <button type="submit">Search</button>
+    </form>
+  </header><br><br>
+
+  <div class="container">
+    <div class="image-preview">
+      <img src="https://i.pinimg.com/1200x/09/1f/db/091fdbe8fa33e4b18992851155888d71.jpg" alt="Dress Image">
+    </div>
+
+    <div class="product-details">
+      <h1>Dolax Mall</h1>
+      <h2>Kids Theme Decoration</h2>
+      <div class="price">₹2000</div>
+
+      <div class="size-select">
+        <span><button><a href="RegisterF.html">Register</a></button></span>
+      </div>
+      <br>
+      <hr>
+      <br>
+      <br>
+      <br>
+
+      
+      <div class="booking-info">
+        <h3>📞 Booking & Contact Details</h3>
+        <p><strong>Phone Number:</strong> +91 98765 43210</p>
+        <p><strong>Available Hours:</strong> Monday – Sunday | 9:00 AM – 9:00 PM</p>
+        <p><strong>Venue:</strong> Tanzz Mall, Near Ramnad Main Road, Tamil Nadu</p>
+      </div>
+
+      <div class="ratings">
+        <span>4★</span> 843 ratings and 40 reviews
+      </div>
+    </div>
+  </div><br>
+
+</body>
+</html>
+

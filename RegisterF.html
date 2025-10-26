@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Booking Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      padding: 20px;
+      background-color: skyblue;
+    }
+
+    .container {
+      background-color: white;
+      padding: 25px;
+      border-radius: 20px;
+      width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    label {
+      display: inline-block;
+      width: 150px;
+      margin-bottom: 8px;
+    }
+
+    input, select {
+      padding: 6px;
+      margin-bottom: 12px;
+      width: 200px;
+    }
+
+    h1 {
+      color: darkblue;
+      text-align: center;
+      font-family: initial;
+      font-size: 25px;
+    }
+
+    button {
+      margin-left: 150px;
+      padding: 8px 16px;
+      background-color: darkblue;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: navy;
+    }
+
+    #confirmation {
+      text-align: left;
+      font-family: initial;
+      margin-top: 20px;
+      background-color: #e0f7fa;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .time-group {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .time-group input {
+      width: 120px;
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Event Registration Form</h1>
+    <form id="bookingForm">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required /><br>
+
+      <label for="num">Mobile No:</label>
+      <input type="number" id="num" name="num" required /><br>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required /><br>
+
+      <label for="eventType">Event Type:</label>
+      <select id="eventType" name="eventType" required>
+        <option value="">--Select an Event--</option>
+        <option value="Wedding">Wedding</option>
+        <option value="Birthday">Birthday</option>
+        <option value="Corporate">Corporate Event</option>
+        <option value="Music">Music Event</option>
+        <option value="Other">Other</option>
+      </select><br>
+
+      <label for="guests">Number of Guests:</label>
+      <input type="number" id="guests" name="guests" min="1" required /><br>
+
+      <label for="startDate">Starting Date:</label>
+      <input type="date" id="startDate" name="startDate" required /><br>
+
+      <label for="endDate">Ending Date:</label>
+      <input type="date" id="endDate" name="endDate" required /><br>
+
+      <label for="startTime">Start Time:</label>
+      <div class="time-group">
+        <input type="time" id="startTime" name="startTime" required />
+      </div><br>
+
+      <label for="endTime">End Time:</label>
+      <div class="time-group">
+        <input type="time" id="endTime" name="endTime" required />
+      </div><br>
+
+      <h3 style="color:darkblue;">Payment Transaction</h3>
+
+      <label for="amount">Amount (₹):</label>
+      <input type="number" id="amount" name="amount" required /><br>
+
+      <label for="paymentMode">Payment Mode:</label>
+      <select id="paymentMode" name="paymentMode" required>
+        <option value="">--Select Mode--</option>
+        <option value="UPI">UPI</option>
+        <option value="Credit Card">Credit Card</option>
+        <option value="Debit Card">Debit Card</option>
+        <option value="Cash">Cash</option>
+      </select><br>
+
+      <label for="transactionId">Transaction ID:</label>
+      <input type="text" id="transactionId" name="transactionId" required /><br>
+
+      <button type="submit">Book Now</button>
+    </form>
+
+    <div id="confirmation"></div>
+  </div>
+
+  <script>
+    document.getElementById('bookingForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const eventType = document.getElementById('eventType').value;
+      const guests = document.getElementById('guests').value;
+      const startDate = document.getElementById('startDate').value;
+      const endDate = document.getElementById('endDate').value;
+      const startTime = document.getElementById('startTime').value;
+      const endTime = document.getElementById('endTime').value;
+      const amount = document.getElementById('amount').value;
+      const paymentMode = document.getElementById('paymentMode').value;
+      const transactionId = document.getElementById('transactionId').value;
+
+     
+      if (!name || !email || !eventType || !guests || !startDate || !endDate || !startTime || !endTime || !amount || !paymentMode || !transactionId) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const confirmation = document.getElementById('confirmation');
+      confirmation.innerHTML = `
+        <h3>🎉 Booking Confirmed!</h3>
+        <p>Thank you, <strong>${name}</strong>.</p>
+        <p>Your <strong>${eventType}</strong> event for <strong>${guests}</strong> guests has been successfully booked.</p>
+        <p><strong>Dates:</strong> ${startDate} to ${endDate}</p>
+        <p><strong>Time:</strong> ${startTime} - ${endTime}</p>
+        <p><strong>Payment:</strong> ₹${amount} (${paymentMode})</p>
+        <p><strong>Transaction ID:</strong> ${transactionId}</p>
+        <p>A confirmation email will be sent to <strong>${email}</strong>.</p>
+      `;
+
+      this.reset();
+    });
+  </script>
+</body>
+</html>

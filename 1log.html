@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Booking System</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", initial;
+    }
+
+    body {
+      color: white;
+      
+    }
+
+   
+    nav {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 35px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    nav .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+   
+    .hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      padding: 0 20px;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.45); /* Dark overlay for readability */
+      z-index: -1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: fadeInDown 1.5s ease;
+      font-family: sans-serif;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 30px;
+      line-height: 1.6;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .hero .btn {
+      padding: 12px 30px;
+      background-color: #ffd700;
+      color: #222;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .hero .btn:hover {
+      background-color: #fff;
+      color: #6a11cb;
+      transform: scale(1.05);
+    }
+
+ 
+    footer {
+      text-align: center;
+      padding: 15px;
+       background: rgba(0, 0, 0, 0.3);
+     
+      font-size: 0.9rem;
+      color: black;
+    }
+
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        padding: 15px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">twinkie<span>_</span>star ✨</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="2Pro.html">Events</a></li>
+      <li><a href="contactt.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1>Entertainment &<br>Event Booking<br>System</h1>
+    <p>Plan and book your dream events effortlessly<br>
+     - we make every event unforgettable!!</p>
+    <a href="2Pro.html" class="btn">Book your Event</a>
+  </section>
+
+  <footer>
+    © Teynampet, Chennai – 600018 | Tamil Nadu, India. | Phone: +91 98765 43210 | Email: contact@twinkiestar.in ❤️
+  </footer>
+</body>
+</html>

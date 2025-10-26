@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twinkie Star | Event Booking Platform</title>
+  <style>
+    body {
+      background-color: skyblue;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 32px;
+      font-weight: bold;
+      padding: 10px 20px;
+      background: linear-gradient(90deg, #ff4da6, #ff80bf, #ffb3d9);
+      color: white;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      letter-spacing: 1px;
+      position: relative;
+      border-radius: 30px;
+    }
+
+    header .logo {
+      position: absolute;
+      left: 20px;
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      font-family: initial;
+    }
+
+    header span {
+      color: #ffd700;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 25px;
+      overflow: hidden;
+      padding: 2px 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      width: 500px;
+      transition: 0.3s ease;
+      justify-content: center;
+    }
+
+    .search-bar:hover {
+      transform: scale(1.03);
+    }
+
+    .search-bar input[type="text"] {
+      border: none;
+      outline: none;
+      padding: 8px 10px;
+      width: 100%;
+      border-radius: 25px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .search-bar button {
+      border: none;
+      background: linear-gradient(90deg, deeppink, hotpink);
+      color: white;
+      border-radius: 20px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .search-bar button:hover {
+      background: linear-gradient(90deg, #ff1a8c, #ff66b2);
+      transform: scale(1.05);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 18px;
+      color: #222;
+      padding: 10px 20px;
+      line-height: 1.6;
+    }
+
+    h2 {
+      text-align: center;
+      color: black;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 4px white;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .collection-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .collection {
+      flex: 1;
+      min-width: 500px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .Event.booking {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      background-color: white;
+    }
+
+    .Event {
+      background: white;
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .Event:hover {
+      transform: translateY(-5px);
+    }
+
+    .Event img {
+      width: 450px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.4s ease;
+      padding-inline: 10px;
+    }
+
+    .Event img:hover {
+      transform: scale(1.05);
+    }
+
+    .image-description {
+      font-size: 20px;
+      margin-top: 10px;
+      color: #333;
+      text-align: center;
+      font-weight: bold;
+      font-family: initial;
+    }
+
+    .buy-btn {
+      margin-top: 8px;
+      background: linear-gradient(90deg, deeppink, hotpink);
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      font-size: 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .buy-btn:hover {
+      background: linear-gradient(90deg, #ff1a8c, #ff66b2);
+      transform: scale(1.05);
+    }
+
+    h3 {
+      text-align: left;
+      color: black;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    ul li a {
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+      transition: color 0.3s;
+      font-family: initial;
+    }
+
+    ul li a:hover {
+      color: blue;
+    }
+
+    .nav-book-btn {
+      position: absolute;
+      right: 25px;
+      background: black;
+      color: white;
+      border: none;
+      padding: 4px 15px;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      transition: 0.3s ease;
+    }
+
+    .nav-book-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .show-more-btn {
+      display: block;
+      margin: 10px auto;
+      padding: 8px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 20px;
+      border: none;
+      background: linear-gradient(90deg, deeppink, hotpink);
+      color: white;
+      transition: 0.3s;
+    }
+
+    .show-more-btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #ff1a8c, #ff66b2);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .search-bar {
+        width: 90%;
+      }
+      .Event img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">twinkie<span>_</span>star ✨</div>
+    <form class="search-bar" onsubmit="event.preventDefault()">
+      <input type="text" id="searchInput" placeholder="Search events..." onkeyup="searchEvents()">
+      <button type="button" onclick="searchEvents()">Search</button>
+    </form>
+    <a href="RegisterF.html">
+      <button class="nav-book-btn">Register</button>
+    </a>
+  </header>
+
+  <section class="about event">
+    <h1>EVENT BOOKING PLATFORM — Bangalore, Chennai, Madurai etc...</h1>
+    <h1>Twinkie offers an event booking platform that allows users to reserve, manage, and pay for events online.</h1>
+
+    <div class="collection-wrapper">
+      <div class="collection">
+        <h2>Events Analyse</h2>
+
+        <h3>Birthday Events</h3>
+        <div class="Event booking">
+          <div class="Event">
+            <img src="https://i.pinimg.com/1200x/ef/7b/3a/ef7b3a108a760c3c4a0c711c6e7a0f8d.jpg" alt="Birthday Hall">
+            <div class="image-description">Elegant Birthday Setup</div>
+            <a href="P1stB.html"><button class="buy-btn">Book Now</button></a>
+          </div>
+          <div class="Event">
+            <img src="https://i.pinimg.com/1200x/09/1f/db/091fdbe8fa33e4b18992851155888d71.jpg" alt="Birthday Decor">
+            <div class="image-description">Kids Theme Decoration</div>
+            <a href="P2ndB.html"><button class="buy-btn">Book Now</button></a>
+          </div>
+          <div class="Event">
+            <img src="https://i.pinimg.com/736x/01/2f/7d/012f7def2ddaf4fb75f42ff5b8284b71.jpg" alt="Cake Party">
+            <div class="image-description">Luxury Cake Party</div>
+            <a href="P3rdB.html"><button class="buy-btn">Book Now</button></a>
+          </div>
+        </div>
+
+        <h3>Wedding Events</h3>
+        <div class="Event booking">
+          <div class="Event">
+            <img src="https://i.pinimg.com/736x/02/bc/3a/02bc3aa5a44f346df7d5b8123c7c0333.jpg" alt="Wedding Stage">
+            <div class="image-description">Traditional Wedding Stage</div>
+            <a href="#"><button class="buy-btn">Book Now</button></a>
+          </div>
+          <div class="Event">
+            <img src="https://i.pinimg.com/736x/26/7c/95/267c95bdf8042d8d6ee5da95e836bc94.jpg" alt="Wedding Decor">
+            <div class="image-description">Royal Mandap Decoration</div>
+            <a href="#"><button class="buy-btn">Book Now</button></a>
+          </div>
+          <div class="Event">
+            <img src="https://i.pinimg.com/736x/a7/95/cc/a795cc5d46bf0c993a47130f1f7bf717.jpg" alt="Reception">
+            <div class="image-description">Reception Venue Design</div>
+            <a href="#"><button class="buy-btn">Book Now</button></a>
+          </div>
+        </div>
+
+       
+        <h3>Music Events</h3>
+        <div class="Event booking">
+          <div class="Event">
+            <img src="https://i.pinimg.com/1200x/71/33/27/7133271377f70caffea5964aa0e7e723.jpg" alt="Concert Stage">
+            <div class="image-description">Live Concert Stage</div>
+            <a href="#"><button class="buy-btn">Book Now</button></a>
+          </div>
+          <div class="Event">
+            <img src="https://i.pinimg.com/736x/46/f6/9f/46f69f5abf758dbe5054971873c92883.jpg" alt="DJ Night">
+            <div class="image-description">DJ Night Party</div>
+            <a href="#"><button class="buy-btn">Book Now</button></a>
+          </div>
+          <div class="Event">
+            <img src="https://i.pinimg.com/736x/27/d0/c7/27d0c72df762b1b962c82d2077962786.jpg" alt="Band Show">
+            <div class="image-description">Live Band Performance</div>
+            <a href="#"><button class="buy-btn">Book Now</button></a>
+          </div>
+        </div>
+
+    
+        <h3>Dance Events</h3>
+        <div class="Event booking" id="danceEvents">
+         
+          <div class="Event hidden">
+            <img src="https://i.pinimg.com/736x/6b/52/6a/6b526abd77989e56df3623c01c6ada09.jpg" alt="Live Dance Stage">
+            <div class="image-description">Live Dance Stage</div>
+            <a href="#"><button class="buy-btn">Book Now</button></a>
+          </div>
+
+          <div class="Event hidden">
+            <img src="https://i.pinimg.com/736x/f3/83/4e/f3834e157d115187df522fd53d854d43.jpg" alt="Solo Dance">
+            <div class="image-description">Solo Dance Performance</div>
+            <a href="#"><button class="buy-btn">Book Now</button></a>
+          </div>
+
+          <div class="Event hidden">
+            <img src="https://i.pinimg.com/736x/59/ab/38/59ab38ef2c39155e6dab9a45433daf93.jpg" alt="Jodi Performance">
+            <div class="image-description">Jodi Performance</div>
+            <a href="#"><button class="buy-btn">Book Now</button></a>
+          </div>
+        </div>
+
+        
+        <button class="show-more-btn" onclick="showMoreDance()">Show More</button>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function searchEvents() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const events = document.querySelectorAll('.Event');
+
+      let anyVisible = false;
+
+      events.forEach(event => {
+        const text = event.innerText.toLowerCase();
+        if(text.includes(input)) {
+          event.style.display = 'block';
+          anyVisible = true;
+        } else {
+          event.style.display = 'none';
+        }
+      });
+
+    
+      let noItemMsg = document.getElementById('noItemMsg');
+      if(!noItemMsg) {
+        noItemMsg = document.createElement('div');
+        noItemMsg.id = 'noItemMsg';
+        noItemMsg.style.textAlign = 'center';
+        noItemMsg.style.fontSize = '18px';
+        noItemMsg.style.color = 'red';
+        document.querySelector('.collection').appendChild(noItemMsg);
+      }
+      noItemMsg.innerText = anyVisible ? '' : 'No items found!';
+    }
+
+    function showMoreDance() {
+      const hiddenDanceEvents = document.querySelectorAll('#danceEvents .hidden');
+      hiddenDanceEvents.forEach(event => {
+        event.style.display = 'block';
+        event.classList.remove('hidden');
+      });
+      document.querySelector('.show-more-btn').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
