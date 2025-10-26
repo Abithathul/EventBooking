@@ -1,6 +1,6 @@
-EVENT BOOKING SYSTEM-
+**EVENT BOOKING SYSTEM-**
 An Event Booking System is a web-based application using HTML, CSS, and JavaScript that allows users to view, book, and manage events efficiently. It provides a platform where users can choose from multiple types of events, check availability, and reserve a slot without manual paperwork.
-One-stop destination for discovering, planning, and booking unforgettable events. 
+One-stop destination for discovering, planning, and booking unforgettable events-From weddings, Music/dance concerts, and corporate gatherings to birthday parties and cultural celebrations.
 
 Output-
 <img width="1920" height="1080" alt="Screenshot (2650)" src="https://github.com/user-attachments/assets/1b1ca51d-d65b-4ed8-9e1d-b874a27c8354" />
